@@ -5,12 +5,14 @@ import { ControlPanel } from "./ControlPanel";
 
 type props = {
   sortAlgorithm: SortAlgorithm;
+  title: string;
 };
 
 function SortSection(props: props) {
   return (
     <ArrayProvider>
       <div className="section">
+        <h2>{props.title}</h2>
         <PillarContainer />
         <ControlPanel {...props} />
       </div>
