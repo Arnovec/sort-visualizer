@@ -22,7 +22,7 @@
   border-radius: 15px;
 }
 
-.pillar-container2 {
+.pillar-container__content {
   display: flex;
   align-items: flex-end;
   width: fit-content;
