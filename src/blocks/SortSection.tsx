@@ -10,11 +10,11 @@ type props = {
 
 function SortSection(props: props) {
   return (
-    <ArrayProvider>
+    <ArrayProvider sortAlgorithm={props.sortAlgorithm}>
       <div className="section">
         <h2>{props.title}</h2>
         <PillarContainer />
-        <ControlPanel {...props} />
+        <ControlPanel />
       </div>
     </ArrayProvider>
   );

@@ -1,30 +1,26 @@
+import { useMemo } from "react";
 import { useArrayContext } from "../context/ArrayProvide";
+import { Pillar } from "./Pillar";
 
-function getElementHeight(val: number, min: number, max: number) {
-  return 5 + ((val - min) / (max - min)) * 95;
-}
-
-function PillarContainer() {
+const PillarContainer = function () {
   const { arr, min, max, currentElements } = useArrayContext();
 
-  return (
-    <div className="pillar-container">
-      <div className="pillar-container__content ">
-        {arr.map((elem, index) => (
-          <div
-            key={"pillar" + index}
-            className="pillar"
-            style={{
-              height: `${getElementHeight(elem, min, max)}%`,
-              backgroundColor: currentElements.includes(index)
-                ? "red"
-                : undefined,
-            }}
-          />
-        ))}
+  return useMemo(() => {
+    console.log("новые столбы 2");
+    return (
+      <div className="pillar-container">
+        <div className="pillar-container__content ">
+          {arr.map((elem, index) => (
+            <Pillar
+              key={"pillar " + index}
+              {...{ elem, index, min, max }}
+              isActive={currentElements.includes(index)}
+            />
+          ))}
+        </div>
       </div>
-    </div>
-  );
-}
+    );
+  }, [arr, min, max, currentElements]);
+};
 
 export { PillarContainer };

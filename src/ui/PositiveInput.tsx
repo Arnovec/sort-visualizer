@@ -1,6 +1,6 @@
 type props = {
   value: number;
-  setValue: React.Dispatch<React.SetStateAction<number>>;
+  setValue: (val: number) => void;
 };
 
 function PositiveInput({ value, setValue }: props) {
