@@ -18,7 +18,7 @@
   overflow: auto;
   padding: 15px 20px;
   margin-bottom: 20px;
-  background-color: rgb(188, 184, 184);
+  background-color: rgb(208, 205, 205);
   border-radius: 15px;
 }
 
@@ -33,11 +33,23 @@
   background-color: blue;
   width: 10px;
   margin-left: 5px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
 }
 
 .control-panel {
   display: flex;
   align-items: center;
+  height: 70px;
+
+}
+
+.control-panel_elem{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  margin-left: 15px;
 }
 
 .control-panel_elem p {

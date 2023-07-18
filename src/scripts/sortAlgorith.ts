@@ -32,8 +32,9 @@ const selectionSort: SortAlgorithm = function* (arr: number[]) {
 };
 
 const quickSort: SortAlgorithm = function* (arr: number[]) {
-  const quickSortStepGenerator = quickSortStep(arr, 0, arr.length - 1);
-  for (const currentElements of quickSortStepGenerator) yield currentElements;
+  yield* quickSortStep(arr, 0, arr.length - 1);
+  // const quickSortStepGenerator = quickSortStep(arr, 0, arr.length - 1);
+  // for (const currentElements of quickSortStepGenerator) yield currentElements;
 };
 
 const quickSortStep: SortAlgorithmWithBorders = function* (
@@ -74,10 +75,13 @@ const quickSortStep: SortAlgorithmWithBorders = function* (
 
   yield [startIndex, leftIndex];
   [arr[startIndex], arr[leftIndex]] = [arr[leftIndex], arr[startIndex]];
-  const quickSortLeftStep = quickSortStep(arr, startIndex, leftIndex - 1);
-  for (const currentElements of quickSortLeftStep) yield currentElements;
-  const quickSortRightStep = quickSortStep(arr, leftIndex + 1, endIndex);
-  for (const currentElements of quickSortRightStep) yield currentElements;
+
+  yield* quickSortStep(arr, startIndex, leftIndex - 1);
+  yield* quickSortStep(arr, leftIndex + 1, endIndex);
+  // const quickSortLeftStep = quickSortStep(arr, startIndex, leftIndex - 1);
+  // for (const currentElements of quickSortLeftStep) yield currentElements;
+  // const quickSortRightStep = quickSortStep(arr, leftIndex + 1, endIndex);
+  // for (const currentElements of quickSortRightStep) yield currentElements;
 };
 
 export { bubbleSort, selectionSort, quickSort };

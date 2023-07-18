@@ -6,7 +6,7 @@ const PillarContainer = function () {
   const { arr, min, max, currentElements } = useArrayContext();
 
   return useMemo(() => {
-    console.log("новые столбы 2");
+    console.log("новые столбы");
     return (
       <div className="pillar-container">
         <div className="pillar-container__content ">
